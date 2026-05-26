@@ -1,0 +1,27 @@
+<!-- Wix: Ayarlar → Özel Kod → BAŞLIK (Header) → Kod Ekle -->
+<!-- 1) Medya'ya logo-mark.png yükle → HTTPS linkini LOGO_URL_BURAYA yaz -->
+<!-- 2) HOME sekmesi için Sayfa SEO'da başlığı düzenle (SEKME-VE-FAVICON.md) -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" href="LOGO_URL_BURAYA" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="LOGO_URL_BURAYA">
+
+<script>
+  (function () {
+    var t = "Bilye — Gıda dedektifi";
+    document.title = t;
+    var obs = new MutationObserver(function () {
+      if (document.title !== t && document.title.indexOf("HOME") !== -1) {
+        document.title = t;
+      }
+    });
+    obs.observe(document.querySelector("title") || document.head, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
+  })();
+</script>
